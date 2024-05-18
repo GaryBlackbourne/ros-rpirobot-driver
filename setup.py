@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'ros-rpirobot-driver'
+package_name = 'ros_rpirobot_driver'
 
 setup(
     name=package_name,
@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'driver = py_ctrl_interface.interface:main',
-            'echo = py_ctrl_interface.test_echo:main',
+            'driver = ros_rpirobot_driver.interface:main',
+            'echo = ros_rpirobot_driver.test_echo:main',
         ],
     },
 )
