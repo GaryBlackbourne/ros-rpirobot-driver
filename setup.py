@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'py_ctrl_interface'
+package_name = 'ros-rpirobot-driver'
 
 setup(
     name=package_name,
