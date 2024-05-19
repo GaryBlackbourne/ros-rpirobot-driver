@@ -2,7 +2,7 @@
 import rclpy
 from rclpy.node import Node
 import serial
-from robot_interfaces.msg import Distance, Velocity
+from ros_rpirobot_interfaces.msg import Distance, Velocity
 
 
 def hexstr_to_int(string_data):
