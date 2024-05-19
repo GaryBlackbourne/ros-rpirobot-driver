@@ -2,7 +2,7 @@
 
 from rclpy.node import Node
 import rclpy
-from robot_interfaces.msg import Distance, Velocity
+from ros_rpirobot_interfaces.msg import Distance, Velocity
 
 
 class TestEcho(Node):
