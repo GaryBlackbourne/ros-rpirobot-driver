@@ -25,7 +25,13 @@ class ControlInterface(Node):
         self.pub_velocity = self.create_publisher(Velocity, 'velocity', 10)
 
         # TODO: use module parameter
-        self.__interface = serial.Serial("/dev/ttyUSB0", 115200)
+        self.declare_parameter('serial_port', '/dev/ttyS0')
+        self.declare_parameter('baud_rate', 115200)
+
+        serial_port = self.get_parameter('serial_port').get_parameter_value().string_value
+        baud_rate = self.get_parameter('baud_rate').get_parameter_value().integer_value
+        self.get_logger().info('%s %s' % (serial_port, baud_rate))
+        self.__interface = serial.Serial(serial_port, baud_rate)
 
         # Update timer for data fetch, and speed keepalive
         timer_period = 0.5  # seconds
@@ -119,9 +125,9 @@ class ControlInterface(Node):
         self.pub_velocity.publish(vel)
 
 
-def main(args=None):
+def main():
     """Start Control interface node."""
-    rclpy.init(args=args)
+    rclpy.init()
 
     control_interface = ControlInterface()
 
